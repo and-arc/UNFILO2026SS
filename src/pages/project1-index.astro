@@ -1,0 +1,46 @@
+---
+// Project1専用のルートページ（ドメインルート用）
+// プロジェクト名変更時は import パスの /project1/ を変更
+// プロジェクトID変更時は project-config.js の PROJECTS.project1.id を変更
+
+// プロジェクト設定
+import { PROJECTS } from '../../project-config.js';
+const project = PROJECTS.project1;
+
+// Parts（機能的コンポーネント）
+import MetaHead from '../components/project1/parts/MetaHead.astro';
+import NavFixed from '../components/project1/parts/NavFixed.astro';
+import FooterScripts from '../components/project1/parts/FooterScripts.astro';
+
+// Sections（セクションコンポーネント）
+import Intro from '../components/project1/Intro.astro';
+import Category from '../components/project1/Category.astro';
+import Section1 from '../components/project1/Section1.astro';
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <MetaHead />
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPVQ6H4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id={project.id.replace('#', '')} class="wrapper">
+    <Intro />
+    <Category />
+    <Section1 />
+
+    <!-- TODO: 他のitemSectionを追加していく -->
+
+    <NavFixed />
+  </div>
+
+  <FooterScripts />
+</body>
+</html>

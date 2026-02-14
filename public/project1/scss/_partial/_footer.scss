@@ -1,0 +1,37 @@
+@use "../_foundation/setting" as *;
+
+//##################### Footer #####################
+// フッター、クレジット情報、CTA（ボタン・バナー）
+
+// クレジット情報
+.credit {
+  .credit_item {
+    // クレジットアイテム
+  }
+}
+
+// CTA
+.cta {
+  .cta_button {
+    // CTAボタン
+  }
+
+  .cta_banner {
+    // バナー
+  }
+}
+
+// フッター
+.footer {
+  .footer_staff {
+    // スタッフ情報
+  }
+
+  .footer_social {
+    // SNSアイコン
+  }
+
+  .footer_copyright {
+    // コピーライト
+  }
+}

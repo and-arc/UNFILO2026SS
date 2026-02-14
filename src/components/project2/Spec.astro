@@ -1,0 +1,21 @@
+---
+// Project2 商品情報セクション
+import Item from './parts/Item.astro';
+---
+
+<div class="intro">
+  <h1 style="font-size: 2em;">■ MVまわり</h1>
+  <div class="infoArea">
+    <div class="infoArea_lineup">
+      <div class="infoArea_lineupArea infoArea_lineupArea-main">
+        <p class="infoArea_lineupAreaLabel">▼ 表紙着用商品</p>
+        <div class="infoArea_lineupList">
+          <Item
+            themeId={2}
+            productNames="2WAY キルティング コート"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

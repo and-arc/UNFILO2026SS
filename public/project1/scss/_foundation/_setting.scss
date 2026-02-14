@@ -1,0 +1,43 @@
+//function
+
+//pxをvwに変換（スマホ用）
+@function p2v($px) {
+  @return ($px / 375 * 100vw);
+}
+
+//pxをemに変換
+@function em($size, $parent: 16) {
+  @return ($size / $parent * 1em);
+}
+
+//pxをremに変換
+@function rem($size) {
+  @return ($size / 16 * 1rem);
+}
+
+//パーセント計算
+@function per($c, $p: 750) {
+  @return ($c / $p * 100%);
+}
+
+//最小値セット
+@function minset($r, $s: $r) {
+  @return min(#{p2v($r)}, #{($s * 1px)});
+}
+@function maxset($r, $s: $r) {
+  @return max(#{p2v($r)}, #{($s * 1px)});
+}
+@function clp($n, $x: $n) {
+  @return clamp(($n * 1px), ($n/375 * 100vw), ($x * 1px));
+}
+
+$breakpoint: 768px;
+$assetsPath: "../";
+
+$serif: "yakuhanjp", "Noto Serif JP", serif;
+$Akshar: "Akshar", sans-serif;
+$Montserrat: "Montserrat", sans-serif;
+
+$pink: #f3629a;
+$orange: #f68460;
+$bgPink: #fff6f9;

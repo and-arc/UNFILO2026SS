@@ -1,0 +1,37 @@
+---
+// Project2専用のスペックページ
+// パスエイリアス設定: tsconfig.json を参照
+// プロジェクト名変更時は tsconfig.json の @project2 エイリアスを変更
+
+// Parts（機能的コンポーネント）
+import MetaHead from '../components/project2/parts/MetaHead.astro';
+import FooterScripts from '../components/project2/parts/FooterScripts.astro';
+
+// Sections（セクションコンポーネント）
+import KeyVisual from '../components/project2/KeyVisual.astro';
+import Spec from '../components/project2/Spec.astro';
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <MetaHead />
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPVQ6H4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="wrapper">
+<KeyVisual />
+  <Spec />
+
+    <!-- TODO: 他のスペックセクションを追加していく -->
+  </div>
+
+  <FooterScripts />
+</body>
+</html>

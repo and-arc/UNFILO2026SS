@@ -1,0 +1,60 @@
+---
+// メタデータとヘッダー情報のコンポーネント
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "「これ持っておけば大丈夫」な万能服でリスタート！",
+  description = "新生活で忙しいあなたに！コスパ良し機能良しなUNFILOから、ハレの日や通勤服に活躍する万能服をお届けします。"
+} = Astro.props;
+---
+
+<!-- 特集ページ計測用 dataLayer -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    'gtm-special_page_id': '20211013_lightouter_style'
+  });
+</script>
+
+<!-- Google Tag Manager -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start': new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-NPVQ6H4');
+</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="keywords" content="UNFILO,UNFILO L,steppi,アンフィ―ロ,アンフィーロエル,ステッピ,稲沢朋子,竹内友梨,明希知美,竹村はま子,機能美,洗える,撥水,UVケア,接触冷感,マルチ機能,多機能,ジョグパン,最愛ジョグパン,BEAUTYMOVE,FINEMOVE,ワンピース,Tシャツ,カーディガン,パンツ,ゆるパンツ,スカート,ブラウス,ロゴT,,ニットシューズ,シャツ,ブルゾン,ジャンスカ,セットアップ,トレンド,春,春服,ニット,ジレ,最旬,通販,クローゼット,CROSSET,マガジン,マガジンCROSSET,ファッション,fashion,オンワード樫山,ONWARD">
+
+<!-- OGP Meta Tags -->
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="ONWARD CROSSET">
+<meta property="og:url" content="https://crosset.onward.co.jp/feature/unfilo/24spring/unfilo_magazine01/">
+<meta property="og:title" content={title}>
+<meta property="og:type" content="website">
+<meta property="og:description" content={description}>
+<meta property="og:image" content="https://crosset.onward.co.jp/feature/unfilo/24spring/unfilo_magazine01/img/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="canonical" href="https://crosset.onward.co.jp/feature/unfilo/24spring/unfilo_magazine01/">
+<link rel="shortcut icon" type="image/x-icon" href="https://crosset.onward.co.jp/favicon/crost/favicon.ico">
+
+<!-- Web Fonts -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600&family=Akshar:wght@500&family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet (VS Codeの拡張機能でコンパイルされたCSS) -->
+<link rel="stylesheet" href="./css/style.css">

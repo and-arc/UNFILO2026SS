@@ -1,0 +1,20 @@
+@use "../_foundation/setting" as *;
+
+//##################### KV (Key Visual) #####################
+// ヒーロー画像、メインコピー、タグライン
+
+.kv {
+  position: relative;
+
+  .kv_img {
+    // KV画像
+  }
+
+  .kv_copy {
+    // メインコピー
+  }
+
+  .kv_tagline {
+    // タグライン
+  }
+}

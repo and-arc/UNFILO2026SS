@@ -1,0 +1,24 @@
+@use "../_foundation/setting" as *;
+
+//##################### Item (商品アイテム個別) #####################
+// 個別の商品アイテムスタイル
+
+.item {
+  position: relative;
+
+  .item_img {
+    // 商品画像
+  }
+
+  .item_title {
+    // 商品タイトル
+  }
+
+  .item_description {
+    // 商品説明
+  }
+
+  .item_point {
+    // 機能美ポイント
+  }
+}

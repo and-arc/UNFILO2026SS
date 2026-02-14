@@ -1,0 +1,36 @@
+{
+  "name": "astro-version",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "dev:1": "node .astro/scripts/dev.js 1",
+    "dev:2": "node .astro/scripts/dev.js 2",
+    "d": "node .astro/scripts/dev.js 1",
+    "d1": "node .astro/scripts/dev.js 1",
+    "d2": "node .astro/scripts/dev.js 2",
+    "b": "npm run build:all",
+    "b1": "node .astro/scripts/build.js 1",
+    "b2": "node .astro/scripts/build.js 2",
+    "build": "npm run build:all",
+    "build:1": "node .astro/scripts/build.js 1",
+    "build:2": "node .astro/scripts/build.js 2",
+    "build:all": "node .astro/scripts/build.js 1 && node .astro/scripts/build.js 2",
+    "build:css:1": "node .astro/scripts/build-css.js 1",
+    "build:css:2": "node .astro/scripts/build-css.js 2",
+    "preview": "astro preview",
+    "preview:1": "PROJECT=1 astro preview",
+    "preview:2": "PROJECT=2 astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.13.4",
+    "d": "^1.0.2"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-prefix-selector": "^2.1.1",
+    "sass": "^1.97.3"
+  }
+}

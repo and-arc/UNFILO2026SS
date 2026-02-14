@@ -1,0 +1,54 @@
+---
+// ============================================================
+// このファイルは開発用のデフォルトページです
+// ============================================================
+//
+// ⚠️ このファイルを直接編集しないでください
+//
+// 【プロジェクト別の編集先】
+//   - Project 1: src/pages/project1-index.astro
+//   - Project 2: src/pages/project2-index.astro
+//
+// 【動作】
+//   - 開発時: このファイルがデフォルトページとして表示されます（Project 1の内容）
+//   - ビルド時: 各プロジェクトのファイルで自動的に上書きされます
+//
+// ============================================================
+
+// Parts（機能的コンポーネント）
+import MetaHead from '../components/project1/parts/MetaHead.astro';
+import NavFixed from '../components/project1/parts/NavFixed.astro';
+import FooterScripts from '../components/project1/parts/FooterScripts.astro';
+
+// Sections（セクションコンポーネント）
+import Intro from '../components/project1/Intro.astro';
+import Category from '../components/project1/Category.astro';
+import Section1 from '../components/project1/Section1.astro';
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <MetaHead />
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPVQ6H4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="wrapper">
+    <Intro />
+    <Category />
+    <Section1 />
+
+    <!-- TODO: 他のitemSectionを追加していく -->
+
+    <NavFixed />
+  </div>
+
+  <FooterScripts />
+</body>
+</html>
