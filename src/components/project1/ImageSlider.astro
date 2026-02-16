@@ -1,0 +1,198 @@
+---
+// スライダーコンポーネント
+---
+
+<div class="slider-container" id="imageSlider">
+  <div class="slider-wrapper">
+    <!-- 表示される要素 -->
+    <div class="slider"><img src="https://placehold.jp/320x440.png" alt=""></div>
+    <div class="slider slider-current">
+      <img src="https://placehold.jp/320x440.png" alt="">
+    </div>
+
+    <!-- 隠れる要素群（右側） -->
+    <div class="slider"><img src="https://placehold.jp/320x440.png" alt=""></div>
+    <div class="slider"><img src="https://placehold.jp/320x440.png" alt=""></div>
+    <div class="slider"><img src="https://placehold.jp/320x440.png" alt=""></div>
+  </div>
+</div>
+
+<style>
+  .slider-container {
+    width: 100%;
+  }
+
+  .slider-wrapper {
+    container-type: inline-size;
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+  }
+
+  .slider {
+    position: absolute;
+    z-index: -1;
+    width: 80cqw;
+    aspect-ratio: 80 / 110;
+    bottom: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition:  0.8s ease;
+    will-change: transform;
+  }
+
+  .slider-current {
+    z-index: 1;
+    right: 0;
+    transform: translateX(0);
+  }
+
+  /* slider-currentの前の要素（左側） */
+  .slider-prev {
+    z-index: 1;
+    width: 40cqw;
+    right: 0;
+    transform: translateX(calc(-80cqw - 2px));
+  }
+
+  /* 左側から退場する要素 */
+  .slider-left-exit {
+    width: 40cqw;
+    right: 0;
+    transform: translateX(calc(-120cqw - 2px));
+    transition: none;
+  }
+</style>
+
+<script>
+  const slider = document.getElementById('imageSlider');
+  if (slider) {
+    const wrapper = slider.querySelector('.slider-wrapper');
+    const sliders = slider.querySelectorAll('.slider');
+    let currentIndex = Array.from(sliders).findIndex(s => s.classList.contains('slider-current'));
+
+    // スライダーの高さを設定
+    function setWrapperHeight() {
+      const currentSlider = sliders[currentIndex];
+      const height = currentSlider.offsetHeight;
+      if (height > 0) {
+        wrapper.style.height = `${height}px`;
+      }
+    }
+
+    // 画像が読み込まれた後に高さを設定
+    const images = slider.querySelectorAll('img');
+    let loadedCount = 0;
+    images.forEach(img => {
+      if (img.complete) {
+        loadedCount++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedCount++;
+          if (loadedCount === images.length) {
+            setWrapperHeight();
+          }
+        });
+      }
+    });
+    if (loadedCount === images.length) {
+      setWrapperHeight();
+    }
+
+    // リサイズ時に高さを再計算
+    window.addEventListener('resize', setWrapperHeight);
+
+    // 初期状態で前の要素にslider-prevを付与
+    function updatePrevSlider() {
+      const prevIndex = currentIndex === 0 ? sliders.length - 1 : currentIndex - 1;
+      sliders.forEach(s => s.classList.remove('slider-prev'));
+      sliders[prevIndex].classList.add('slider-prev');
+    }
+    updatePrevSlider();
+
+    function nextSlide() {
+      // 前の要素（左側の小さい要素）を取得
+      const prevIndex = currentIndex === 0 ? sliders.length - 1 : currentIndex - 1;
+      const prevSlider = sliders[prevIndex];
+
+      // 前の要素をさらに左に移動
+      prevSlider.classList.add('slider-left-exit');
+      prevSlider.classList.remove('slider-prev');
+
+      // 現在のslider-currentを削除
+      sliders[currentIndex].classList.remove('slider-current');
+
+      // 次のインデックスへ
+      currentIndex = (currentIndex + 1) % sliders.length;
+
+      // 新しいslider-currentを追加
+      sliders[currentIndex].classList.add('slider-current');
+
+      // 新しい前の要素を設定
+      updatePrevSlider();
+
+      // 0.6秒後に左に移動した要素を右側に戻す
+      setTimeout(() => {
+        prevSlider.classList.remove('slider-left-exit');
+      }, 600);
+    }
+
+    // スワイプ/ドラッグ機能
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let autoPlayInterval;
+
+    function startDrag(e) {
+      isDragging = true;
+      startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+      currentX = startX;
+      e.preventDefault();
+    }
+
+    function moveDrag(e) {
+      if (!isDragging) return;
+      currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    }
+
+    function endDrag(e) {
+      if (!isDragging) return;
+      isDragging = false;
+
+      const diff = startX - currentX;
+      const threshold = 50; // スワイプと判定する最小距離
+
+      // 左にスワイプ（次のスライドへ）
+      if (diff > threshold) {
+        // オートプレイをリセット
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(nextSlide, 4000);
+        nextSlide();
+      }
+    }
+
+    // イベントリスナー設定
+    wrapper.addEventListener('mousedown', startDrag);
+    wrapper.addEventListener('touchstart', startDrag, { passive: false });
+
+    wrapper.addEventListener('mousemove', moveDrag);
+    wrapper.addEventListener('touchmove', moveDrag, { passive: false });
+
+    wrapper.addEventListener('mouseup', endDrag);
+    wrapper.addEventListener('touchend', endDrag);
+
+    wrapper.addEventListener('mouseleave', () => {
+      isDragging = false;
+    });
+
+    // ドラッグ選択を無効化
+    wrapper.style.userSelect = 'none';
+    wrapper.style.webkitUserSelect = 'none';
+
+    // 3秒ごとに次のスライドへ（オートプレイ）
+    autoPlayInterval = setInterval(nextSlide, 4000);
+  }
+</script>

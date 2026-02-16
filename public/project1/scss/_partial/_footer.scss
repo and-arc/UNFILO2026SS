@@ -3,35 +3,135 @@
 //##################### Footer #####################
 // フッター、クレジット情報、CTA（ボタン・バナー）
 
-// クレジット情報
-.credit {
-  .credit_item {
-    // クレジットアイテム
-  }
-}
-
-// CTA
-.cta {
-  .cta_button {
-    // CTAボタン
+#{$project-id} {
+  // クレジット情報
+  .credit {
+    .credit_item {
+      // クレジットアイテム
+    }
   }
 
-  .cta_banner {
-    // バナー
-  }
-}
+  // CTA
+  .cta {
+    .cta_button {
+      // CTAボタン
+    }
 
-// フッター
-.footer {
-  .footer_staff {
+    .cta_banner {
+      // バナー
+    }
+  }
+
+  // フッター
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    padding: 40px 0;
+
     // スタッフ情報
-  }
+    .footer_staff {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: minset(325);
+      max-width: 90%;
+      color: #222;
+      text-align: center;
 
-  .footer_social {
+      .footer_staff_title {
+        font-family: "Noto Sans", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        font-weight: 400;
+      }
+
+      .footer_staff_content {
+        font-family: $serif;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        line-height: 2;
+        font-weight: 400;
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .footer_staff_note {
+        font-family: $serif;
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        line-height: 2;
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+
     // SNSアイコン
-  }
+    .footer_social {
+      display: flex;
+      gap: 32px;
+      align-items: center;
 
-  .footer_copyright {
+      .footer_social_icon {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
     // コピーライト
+    .footer_copyright {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      width: 100%;
+      padding: 48px 20px 20px;
+      background-color: #222;
+
+      .footer_copyright_logo {
+        width: 104px;
+        height: 51px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .footer_copyright_text {
+        font-family: "Noto Sans", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        max-width: minset(325);
+        margin: 0;
+        font-weight: 400;
+      }
+    }
   }
 }

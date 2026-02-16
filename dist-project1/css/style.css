@@ -6,7 +6,18 @@ Last Updated: 2010-09-17
 Author: Richard Clark - http://richclarkdesign.com
 Twitter: @rich_clark
 */
-html, body, #unfilo2026SS div, #unfilo2026SS span, #unfilo2026SS object, #unfilo2026SS iframe, #unfilo2026SS h1, #unfilo2026SS h2, #unfilo2026SS h3, #unfilo2026SS h4, #unfilo2026SS h5, #unfilo2026SS h6, #unfilo2026SS p, #unfilo2026SS blockquote, #unfilo2026SS pre, #unfilo2026SS abbr, #unfilo2026SS address, #unfilo2026SS cite, #unfilo2026SS code, #unfilo2026SS del, #unfilo2026SS dfn, #unfilo2026SS em, #unfilo2026SS img, #unfilo2026SS ins, #unfilo2026SS kbd, #unfilo2026SS q, #unfilo2026SS samp, #unfilo2026SS small, #unfilo2026SS strong, #unfilo2026SS sub, #unfilo2026SS sup, #unfilo2026SS var, #unfilo2026SS b, #unfilo2026SS i, #unfilo2026SS dl, #unfilo2026SS dt, #unfilo2026SS dd, #unfilo2026SS ol, #unfilo2026SS ul, #unfilo2026SS li, #unfilo2026SS fieldset, #unfilo2026SS form, #unfilo2026SS label, #unfilo2026SS legend, #unfilo2026SS table, #unfilo2026SS caption, #unfilo2026SS tbody, #unfilo2026SS tfoot, #unfilo2026SS thead, #unfilo2026SS tr, #unfilo2026SS th, #unfilo2026SS td, #unfilo2026SS article, #unfilo2026SS aside, #unfilo2026SS canvas, #unfilo2026SS details, #unfilo2026SS figcaption, #unfilo2026SS figure, #unfilo2026SS footer, #unfilo2026SS header, #unfilo2026SS hgroup, #unfilo2026SS menu, #unfilo2026SS nav, #unfilo2026SS section, #unfilo2026SS summary, #unfilo2026SS time, #unfilo2026SS mark, #unfilo2026SS audio, #unfilo2026SS video {
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -20,24 +31,26 @@ body {
   line-height: 1;
 }
 
-#unfilo2026SS article, #unfilo2026SS aside, #unfilo2026SS details, #unfilo2026SS figcaption, #unfilo2026SS figure, #unfilo2026SS footer, #unfilo2026SS header, #unfilo2026SS hgroup, #unfilo2026SS menu, #unfilo2026SS nav, #unfilo2026SS section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-#unfilo2026SS nav ul {
+nav ul {
   list-style: none;
 }
 
-#unfilo2026SS blockquote, #unfilo2026SS q {
+blockquote, q {
   quotes: none;
 }
 
-#unfilo2026SS blockquote:before, #unfilo2026SS blockquote:after, #unfilo2026SS q:before, #unfilo2026SS q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
   content: "";
   content: none;
 }
 
-#unfilo2026SS a {
+a {
   margin: 0;
   padding: 0;
   font-size: 100%;
@@ -46,36 +59,36 @@ body {
 }
 
 /* change colours to suit your needs */
-#unfilo2026SS ins {
+ins {
   background-color: #ff9;
   color: #000;
   text-decoration: none;
 }
 
 /* change colours to suit your needs */
-#unfilo2026SS mark {
+mark {
   background-color: #ff9;
   color: #000;
   font-style: italic;
   font-weight: bold;
 }
 
-#unfilo2026SS del {
+del {
   text-decoration: line-through;
 }
 
-#unfilo2026SS abbr[title], #unfilo2026SS dfn[title] {
+abbr[title], dfn[title] {
   border-bottom: 1px dotted;
   cursor: help;
 }
 
-#unfilo2026SS table {
+table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
 /* change border colour to suit your needs */
-#unfilo2026SS hr {
+hr {
   display: block;
   height: 1px;
   border: 0;
@@ -84,44 +97,45 @@ body {
   padding: 0;
 }
 
-#unfilo2026SS input, #unfilo2026SS select {
+input, select {
   vertical-align: middle;
 }
 
-#unfilo2026SS * {
+* {
   box-sizing: border-box;
 }
-#unfilo2026SS *::before, #unfilo2026SS *::after {
+*::before, *::after {
   box-sizing: border-box;
 }
 
-#unfilo2026SS a {
+a {
   color: inherit;
   text-decoration: none;
 }
 
-#unfilo2026SS ul,
-#unfilo2026SS ol {
+ul,
+ol {
   list-style: none;
 }
 
-#unfilo2026SS img,
-#unfilo2026SS video {
+img,
+video {
   max-width: 100%;
   height: auto;
 }
 
-#unfilo2026SS sup {
+sup {
   vertical-align: super;
   font-size: 0.75em;
 }
 
-#unfilo2026SS input,
-#unfilo2026SS select,
-#unfilo2026SS textarea,
-#unfilo2026SS button {
+input,
+select,
+textarea,
+button {
   -moz-appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   background: none;
   border: none;
   border-radius: 0;
@@ -131,21 +145,21 @@ body {
   font-family: inherit;
 }
 
-#unfilo2026SS input::-ms-expand,
-#unfilo2026SS select::-ms-expand,
-#unfilo2026SS textarea::-ms-expand,
-#unfilo2026SS button::-ms-expand {
+input::-ms-expand,
+select::-ms-expand,
+textarea::-ms-expand,
+button::-ms-expand {
   display: none;
 }
 
-#unfilo2026SS button {
+button {
   display: block;
   cursor: pointer;
 }
 
-#unfilo2026SS input,
-#unfilo2026SS textarea,
-#unfilo2026SS select {
+input,
+textarea,
+select {
   width: 100%;
   border: 1px solid #ccc;
   background: none;
@@ -171,28 +185,28 @@ body {
   font-display: swap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.04em;
 }
 
-#unfilo2026SS .only-pc {
+.only-pc {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  #unfilo2026SS .only-sp {
+  .only-sp {
     display: none;
   }
-  #unfilo2026SS .only-pc {
+  .only-pc {
     display: block;
   }
 }
-#unfilo2026SS .dib {
+.dib {
   display: inline-block;
 }
 
 #unfilo2026SS .fixed-nav {
   position: fixed;
 }
-
 #unfilo2026SS .btn {
   display: inline-block;
 }
@@ -200,8 +214,309 @@ body {
 #unfilo2026SS .kv {
   position: relative;
 }
-#unfilo2026SS .item {
-  position: relative;
+#unfilo2026SS .item_box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 275px;
+  width: 100%;
+  margin: auto;
+  font-family: "Cormorant Infant", serif;
+  font-weight: 600;
+}
+#unfilo2026SS .item_box + .item_box {
+  margin-top: 16px;
+}
+#unfilo2026SS .item_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+#unfilo2026SS .item_name {
+  font-size: 12px;
+  white-space: nowrap;
+  line-height: 1;
+}
+#unfilo2026SS .item_sizeLabel {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 12px;
+  white-space: nowrap;
+}
+#unfilo2026SS .item_sizeLabel::before {
+  content: "";
+  flex-shrink: 0;
+  width: 5px;
+  height: 10px;
+  margin-right: 4px;
+  margin-left: 7px;
+  background-color: #999;
+  clip-path: polygon(0 0, 1px 0, 1px 9px, 5px 9px, 5px 10px, 0 10px);
+  transform: translateY(-2px);
+}
+#unfilo2026SS .item_priceGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+#unfilo2026SS .item_priceGroup .item_priceText {
+  white-space: nowrap;
+  line-height: 1;
+  text-align: right;
+  font-size: 12px;
+}
+#unfilo2026SS .item_priceGroup .item_priceText small {
+  display: inline-block;
+  font-size: 10px;
+}
+#unfilo2026SS .item_priceGroup .item_priceText small:last-child {
+  padding-left: 0.25em;
+}
+#unfilo2026SS .item_priceGroup .item_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  text-decoration: none;
+  flex-shrink: 0;
+  background-color: #fff;
+  border: 1px solid #222;
+}
+#unfilo2026SS .item_priceGroup .item_btn .item_btnText {
+  font-size: 10px;
+  line-height: 1;
+}
+@media (hover: hover) {
+  #unfilo2026SS .item_priceGroup .item_btn {
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  #unfilo2026SS .item_priceGroup .item_btn .item_btnText {
+    transition: color 0.2s ease;
+  }
+  #unfilo2026SS .item_priceGroup .item_btn:hover {
+    background-color: #f37c9d;
+    border-color: #f37c9d;
+  }
+  #unfilo2026SS .item_priceGroup .item_btn:hover .item_btnText {
+    color: #fff;
+  }
+}
+
+#unfilo2026SS .section .section_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+}
+#unfilo2026SS .section .section_title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+#unfilo2026SS .section .section_lead {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  width: 325px;
+}
+#unfilo2026SS .section .section_colorVariation {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 325px;
+}
+#unfilo2026SS .section .section_colorVariation .label {
+  font-family: "Jost", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  text-align: center;
+}
+#unfilo2026SS .section .section_colorVariation .swatches {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#unfilo2026SS .section .section_colorVariation .swatches .swatch {
+  width: 28px;
+  height: 16px;
+  flex-shrink: 0;
+}
+#unfilo2026SS #jogPants .section_images {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 375px;
+}
+#unfilo2026SS #jogPants .section_images .image-left {
+  width: 53px;
+  height: 214px;
+  background-color: #ccc;
+  flex-shrink: 0;
+}
+#unfilo2026SS #jogPants .section_images .image-right {
+  width: 320px;
+  height: 453px;
+  background-color: #ccc;
+  flex-shrink: 0;
+}
+#unfilo2026SS #jogPants .section_pointList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 324px;
+}
+#unfilo2026SS #jogPants .section_pointList .point {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+#unfilo2026SS #jogPants .section_pointList .point .point_image {
+  width: 136px;
+  height: 136px;
+  background-color: #ccc;
+  flex-shrink: 0;
+  border: 10px solid #fff;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.08);
+}
+#unfilo2026SS #jogPants .section_pointList .point .point_content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+#unfilo2026SS #jogPants .section_pointList .point .point_content .point_label {
+  font-family: "Arizonia", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #f37c9d;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#unfilo2026SS #jogPants .section_pointList .point .point_content .point_text {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+#unfilo2026SS #jogPants .section_items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 275px;
+}
+
+#unfilo2026SS .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  padding: 40px 0;
+}
+#unfilo2026SS .footer .footer_staff {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(86.6666666667vw, 325px);
+  max-width: 90%;
+  color: #222;
+  text-align: center;
+}
+#unfilo2026SS .footer .footer_staff .footer_staff_title {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  font-weight: 400;
+}
+#unfilo2026SS .footer .footer_staff .footer_staff_content {
+  font-family: "yakuhanjp", "Noto Serif JP", serif;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  line-height: 2;
+  font-weight: 400;
+}
+#unfilo2026SS .footer .footer_staff .footer_staff_content p {
+  margin: 0;
+}
+#unfilo2026SS .footer .footer_staff .footer_staff_note {
+  font-family: "yakuhanjp", "Noto Serif JP", serif;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  line-height: 2;
+  font-weight: 400;
+  margin: 0;
+}
+#unfilo2026SS .footer .footer_social {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+#unfilo2026SS .footer .footer_social .footer_social_icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+#unfilo2026SS .footer .footer_social .footer_social_icon:hover {
+  opacity: 0.7;
+}
+#unfilo2026SS .footer .footer_social .footer_social_icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#unfilo2026SS .footer .footer_copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  padding: 48px 20px 20px;
+  background-color: #222;
+}
+#unfilo2026SS .footer .footer_copyright .footer_copyright_logo {
+  width: 104px;
+  height: 51px;
+}
+#unfilo2026SS .footer .footer_copyright .footer_copyright_logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#unfilo2026SS .footer .footer_copyright .footer_copyright_text {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  max-width: min(86.6666666667vw, 325px);
+  margin: 0;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=style.css.map */

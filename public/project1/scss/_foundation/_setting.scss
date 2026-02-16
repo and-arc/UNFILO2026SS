@@ -1,4 +1,29 @@
-//function
+// ==========================================
+// Variables
+// ==========================================
+
+// プロジェクトID（スコープ用）
+// ※変更時は project-config.js の PROJECTS.project1.id も同期すること
+$project-id: "#unfilo2026SS";
+
+// ブレイクポイント・パス
+$breakpoint: 768px;
+$assetsPath: "../";
+
+// フォント
+$serif: "yakuhanjp", "Noto Serif JP", serif;
+$Akshar: "Akshar", sans-serif;
+$Montserrat: "Montserrat", sans-serif;
+
+// カラー
+$pink: #f3629a;
+$orange: #f68460;
+$bgPink: #fff6f9;
+$accentC: #f37c9d;
+
+// ==========================================
+// Functions
+// ==========================================
 
 //pxをvwに変換（スマホ用）
 @function p2v($px) {
@@ -30,14 +55,3 @@
 @function clp($n, $x: $n) {
   @return clamp(($n * 1px), ($n/375 * 100vw), ($x * 1px));
 }
-
-$breakpoint: 768px;
-$assetsPath: "../";
-
-$serif: "yakuhanjp", "Noto Serif JP", serif;
-$Akshar: "Akshar", sans-serif;
-$Montserrat: "Montserrat", sans-serif;
-
-$pink: #f3629a;
-$orange: #f68460;
-$bgPink: #fff6f9;

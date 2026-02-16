@@ -33,6 +33,7 @@ textarea,
 button {
 	-moz-appearance: none;
 	-webkit-appearance: none;
+	appearance: none;
 	background: none;
 	border: none;
 	border-radius: 0;
@@ -75,8 +76,8 @@ body {
 	font-display: swap;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0.04em;
 }
-
 .only-pc {
 	display: none;
 }

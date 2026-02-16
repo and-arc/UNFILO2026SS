@@ -3,12 +3,14 @@
 //##################### Parts (共通UIコンポーネント) #####################
 // 固定ナビ、ボタン、タグ、バッジ、波線装飾など再利用可能なパーツ
 
-// 固定ナビゲーション
-.fixed-nav {
-  position: fixed;
-}
+#{$project-id} {
+  // 固定ナビゲーション
+  .fixed-nav {
+    position: fixed;
+  }
 
-// ボタン
-.btn {
-  display: inline-block;
+  // ボタン
+  .btn {
+    display: inline-block;
+  }
 }

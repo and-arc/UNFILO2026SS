@@ -2,7 +2,7 @@
 // 商品ラインナップの内容部分のみを出力する軽量コンポーネント
 // サーバーサイドでのみ実行され、クライアントサイドJavaScriptは生成されない
 // @ts-nocheck
-import { getProductsByName, formatPrice, getSizeClass } from '../../../utils/productUtils.js';
+import { getProductsByName } from '../../../utils/productUtils.js';
 import projectData from '../../../spec/project1.json';
 
 export interface Props {
@@ -14,18 +14,40 @@ const { themeId, productNames } = Astro.props;
 
 // ビルド時に商品情報を静的に解決（ランタイム処理なし）
 const groupedItems = getProductsByName(projectData, themeId, productNames);
+
+// 価格をカンマ区切りにフォーマット
+function formatPrice(price: number) {
+  return price.toLocaleString();
+}
 ---
 
-{Object.entries(groupedItems).map(([itemName, items]) => (
-  <div class="item_box">
-    <h4 class="item_name">{itemName}</h4>
-    <ul class="item_priceList">
-      {(items as any[]).map((item: any) => (
-        <li class={`item_price ${getSizeClass(item.size)}`}>
-          <span class="item_priceText">{formatPrice(item.price)}<span class="tax">(税込)</span></span>
-          <a href={item.link} class="item_btn" target="_blank" rel="noopener">詳細</a>
-        </li>
-      ))}
-    </ul>
-  </div>
-))}
+{Object.entries(groupedItems).map(([itemName, items]) => {
+  const itemArray = items as any[];
+
+  return (
+    <div class="item_box">
+      {itemArray.map((item: any, index: number) => {
+        const isMain = index === 0;
+        const formattedPrice = formatPrice(item.price);
+
+        return (
+          <div class={`item_row ${isMain ? 'item_row-main' : 'item_row-sub'}`}>
+            {isMain ? (
+              <h4 class="item_name">{itemName}</h4>
+            ) : (
+              <div class="item_sizeLabel">L size</div>
+            )}
+            <div class="item_priceGroup">
+              <div class="item_priceText">
+                <small>¥</small>{formattedPrice}<small>(tax in)</small>
+              </div>
+              <a href={item.link} class="item_btn" target="_blank" rel="noopener">
+                <span class="item_btnText">DETAIL</span>
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+})}

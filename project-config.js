@@ -7,7 +7,7 @@ export const PROJECTS = {
   // プロジェクト1: UNFILO
   project1: {
     name: "project1", // ディレクトリ名・ファイル名で使用（変更時はここを編集）
-    id: "#unfilo2026SS", // CSS Scopingに使用するID
+    id: "#unfilo2026SS", // HTML id属性 & SCSS スコープ用（_setting.scss の $project-id と同期）
     port: 5501, // 開発サーバーのポート
   },
   // プロジェクト2: Project2

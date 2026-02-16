@@ -1,21 +1,56 @@
 ---
 // セクションコンポーネント
 import Item from './parts/Item.astro';
+import ImageSlider from './ImageSlider.astro';
 ---
 
-<!-- セクション -->
-<section class="section section01" id="theme1">
+<!-- セクション1 -->
+<section class="section" id="jogPants">
   <div class="section_inner">
-		<div class="section_head">
-			<p class="catch"><span>可愛さ・コスパ機能性を総取り!</span></p>
-			<h2 class="title">
-				<img src="./img/img_theme01_anchor.png" alt="!">
-			</h2>
-			<p class="lead">
-					機能面にはさらなる磨きを、そしてトレンド感も網羅する新作から、<br>
-					忙しい私たちがすぐ取り入れるべきニュースをピックアップします。
-			</p>
-		</div>
+    <!-- タイトルエリア -->
+    <div class="section_title">
+      <img src="./img/section01_title.png" alt="累計10万本！「最愛ジョグパン」がさらにさらに進化中">
+      <p class="section_lead">
+        UNFILOから生まれた大ヒット名品が<br>
+        より美しく、より快適に、さらに頼れる一本へと<br>
+        生地もディテールもブラッシュアップ！<br>
+        この春もシーンレスで活躍の予感です。
+      </p>
+    </div>
+    <!-- 画像エリア -->
+    <ImageSlider />
+
+    <!-- カラーバリエーション -->
+    <div class="section_colorVariation">
+      <p class="label">COLOR VARIATION</p>
+      <ul class="swatches">
+        <li class="swatch" style="background-color: #2b3344;"></li>
+        <li class="swatch" style="background-color: #aeabb6;"></li>
+        <li class="swatch" style="background-color: #2b2223;"></li>
+      </ul>
+    </div>
+
+    <!-- Pointセクション -->
+    <div class="section_pointList">
+      <div class="point">
+        <div class="point_image"></div>
+        <div class="point_content">
+          <p class="point_label">Point</p>
+          <p class="point_text">センタープレスに樹脂加工を施すことで、より落ちにくく。縦ラインをしっかり強調してくれます。</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point_image"></div>
+        <div class="point_content">
+          <p class="point_label">Point</p>
+          <p class="point_text">肌に触れる側の糸を見直すこで、吸水速乾性がグッとUP。お手入れしやすくなり、汗ばむ季節でも快適です。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 商品リスト -->
+    <div class="section_items">
+      <Item themeId={1} productNames={["Knit", "Camisole", "Denim", "Pants"]} />
+    </div>
   </div>
-	</div>
 </section>

@@ -1,24 +1,133 @@
 @use "../_foundation/setting" as *;
 
 //##################### Product Sections #####################
-// 商品セット（画像、タグ、カラーバリエーション、機能美ポイント等）
+// 商品セクション（画像、タグ、カラーバリエーション、機能美ポイント等）
 
-.product-section {
-  // 商品セクション共通スタイル
-
-  .product-section_container {
-    // コンテナ
+#{$project-id} {
+  // section共通
+  .section {
+    .section_inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      width: 100%;
+    }
+    // タイトルエリア
+    .section_title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+    }
+    .section_lead {
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+      width: 325px;
+    }
+    // カラーバリエーション
+    .section_colorVariation {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+      justify-content: flex-end;
+      width: 325px;
+      .label {
+        font-family: "Jost", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .swatches {
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        .swatch {
+          width: 28px;
+          height: 16px;
+          flex-shrink: 0;
+        }
+      }
+    }
   }
-
-  .product-section_title {
-    // セクションタイトル
-  }
-
-  .product-section_subtitle {
-    // サブタイトル
-  }
-
-  .product-section_credit {
-    // クレジット情報
+  #jogPants {
+    // 画像エリア
+    .section_images {
+      display: flex;
+      gap: 2px;
+      align-items: flex-end;
+      justify-content: flex-end;
+      width: 375px;
+      .image-left {
+        width: 53px;
+        height: 214px;
+        background-color: #ccc;
+        flex-shrink: 0;
+      }
+      .image-right {
+        width: 320px;
+        height: 453px;
+        background-color: #ccc;
+        flex-shrink: 0;
+      }
+    }
+    // Pointセクション
+    .section_pointList {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 324px;
+      .point {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        width: 100%;
+        .point_image {
+          width: 136px;
+          height: 136px;
+          background-color: #ccc;
+          flex-shrink: 0;
+          border: 10px solid #fff;
+          box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.08);
+        }
+        .point_content {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          flex: 1;
+          min-width: 0;
+          .point_label {
+            font-family: "Arizonia", serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: $accentC;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+          .point_text {
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            line-height: 1.8;
+            white-space: pre-wrap;
+          }
+        }
+      }
+    }
+    // 商品リスト
+    .section_items {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 275px;
+    }
   }
 }

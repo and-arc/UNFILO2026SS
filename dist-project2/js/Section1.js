@@ -1,5 +1,5 @@
-import { c as createComponent, e as createAstro, f as renderScript, d as addAttribute, b as renderTemplate, m as maybeRenderHead, r as renderComponent } from "./astro/server.js";
-import { g as getProductsByName, f as formatPrice, a as getSizeClass, p as projectData } from "./project1.js";
+import { c as createComponent, f as createAstro, e as renderScript, b as addAttribute, d as renderTemplate, m as maybeRenderHead, r as renderComponent } from "./astro/server.js";
+import { g as getProductsByName, p as projectData } from "./project1.js";
 const $$Astro$1 = createAstro();
 const $$MetaHead = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
@@ -8,9 +8,9 @@ const $$MetaHead = createComponent(($$result, $$props, $$slots) => {
     title = "「これ持っておけば大丈夫」な万能服でリスタート！",
     description = "新生活で忙しいあなたに！コスパ良し機能良しなUNFILOから、ハレの日や通勤服に活躍する万能服をお届けします。"
   } = Astro2.props;
-  return renderTemplate`<!-- 特集ページ計測用 dataLayer -->${renderScript($$result, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/parts/MetaHead.astro?astro&type=script&index=0&lang.ts")}
+  return renderTemplate`<!-- 特集ページ計測用 dataLayer -->${renderScript($$result, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/parts/MetaHead.astro?astro&type=script&index=0&lang.ts")}
 
-<!-- Google Tag Manager -->${renderScript($$result, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/parts/MetaHead.astro?astro&type=script&index=1&lang.ts")}
+<!-- Google Tag Manager -->${renderScript($$result, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/parts/MetaHead.astro?astro&type=script&index=1&lang.ts")}
 <!-- End Google Tag Manager --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +38,7 @@ const $$MetaHead = createComponent(($$result, $$props, $$slots) => {
 
 <!-- Main Stylesheet (VS Codeの拡張機能でコンパイルされたCSS) -->
 <link rel="stylesheet" href="./css/style.css">`;
-}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/parts/MetaHead.astro", void 0);
+}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/parts/MetaHead.astro", void 0);
 const $$NavFixed = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`<!-- 固定ナビゲーション -->${maybeRenderHead()}<div class="fixedNav">
   <div class="pagetop_btn">
@@ -49,30 +49,74 @@ const $$NavFixed = createComponent(($$result, $$props, $$slots) => {
     </a>
   </div>
 </div>`;
-}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/parts/NavFixed.astro", void 0);
+}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/parts/NavFixed.astro", void 0);
 var __freeze = Object.freeze;
 var __defProp = Object.defineProperty;
 var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
 var _a;
 const $$FooterScripts = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate(_a || (_a = __template(["<!-- フッター -->", '<footer class="footer">\n  <div class="logo">\n    <img src="./img/logo.png" alt="">\n  </div>\n  <p class="copyright">Copyright © ONWARD KASHIYAMA Co.,Ltd.</p>\n</footer>\n\n<!-- JavaScriptの読み込み（従来のjQuery版を使用） -->\n<script src="https://code.jquery.com/jquery-3.6.0.min.js"><\/script>\n<script defer src="./js/functions.js"><\/script>'])), maybeRenderHead());
-}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/parts/FooterScripts.astro", void 0);
+}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/parts/FooterScripts.astro", void 0);
 const $$Astro = createAstro();
 const $$Item = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Item;
   const { themeId, productNames } = Astro2.props;
   const groupedItems = getProductsByName(projectData, themeId, productNames);
-  return renderTemplate`${Object.entries(groupedItems).map(([itemName, items]) => renderTemplate`${maybeRenderHead()}<div class="item_box">
-    <h4 class="item_name">${itemName}</h4>
-    <ul class="item_priceList">
-      ${items.map((item) => renderTemplate`<li${addAttribute(`item_price ${getSizeClass(item.size)}`, "class")}>
-          <span class="item_priceText">${formatPrice(item.price)}<span class="tax">(税込)</span></span>
-          <a${addAttribute(item.link, "href")} class="item_btn" target="_blank" rel="noopener">詳細</a>
-        </li>`)}
-    </ul>
-  </div>`)}`;
-}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/parts/Item.astro", void 0);
+  function splitPrice(price) {
+    const formatted = price.toLocaleString();
+    return {
+      yen: "¥",
+      amount: formatted,
+      taxIn: "(tax in)"
+    };
+  }
+  return renderTemplate`${Object.entries(groupedItems).map(([itemName, items]) => {
+    const itemArray = items;
+    const mainItem = itemArray[0];
+    const subItems = itemArray.slice(1);
+    const mainPrice = splitPrice(mainItem.price);
+    return renderTemplate`${maybeRenderHead()}<div class="item_box">
+      
+      <div class="item_row item_row-main">
+        <h4 class="item_name">${itemName}</h4>
+        <div class="item_priceGroup">
+          <div class="item_priceText">
+            <span class="item_priceYen">${mainPrice.yen}</span>
+            <span class="item_priceAmount">${mainPrice.amount}</span>
+            <span class="item_priceTax">${mainPrice.taxIn}</span>
+          </div>
+          <a${addAttribute(mainItem.link, "href")} class="item_btn item_btn-main" target="_blank" rel="noopener">
+            <span class="item_btnText">DETAIL</span>
+          </a>
+        </div>
+      </div>
+
+      
+      ${subItems.map((item) => {
+      const subPrice = splitPrice(item.price);
+      return renderTemplate`<div class="item_row item_row-sub">
+            <div class="item_sizeLabel">
+              <span class="item_sizeIcon">
+                <img src="/project1/img/line.svg" alt="">
+              </span>
+              <span class="item_sizeName">${item.size === "large" ? "L size" : item.size}</span>
+            </div>
+            <div class="item_priceGroup">
+              <div class="item_priceText">
+                <span class="item_priceYen">${subPrice.yen}</span>
+                <span class="item_priceAmount">${subPrice.amount}</span>
+                <span class="item_priceTax">${subPrice.taxIn}</span>
+              </div>
+              <a${addAttribute(item.link, "href")} class="item_btn item_btn-sub" target="_blank" rel="noopener">
+                <span class="item_btnText">DETAIL</span>
+              </a>
+            </div>
+          </div>`;
+    })}
+    </div>`;
+  })}`;
+}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/parts/Item.astro", void 0);
 const $$Intro = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`<!-- Key Visual Section -->${maybeRenderHead()}<div class="kv">
   <h1>
@@ -105,10 +149,10 @@ const $$Intro = createComponent(($$result, $$props, $$slots) => {
     </div>
   </div>
 </div>`;
-}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/Intro.astro", void 0);
+}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/Intro.astro", void 0);
 const $$Category = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate``;
-}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/Category.astro", void 0);
+}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/Category.astro", void 0);
 const $$Section1 = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`<!-- セクション -->${maybeRenderHead()}<section class="section section01" id="theme1">
   <div class="section_inner">
@@ -125,7 +169,7 @@ const $$Section1 = createComponent(($$result, $$props, $$slots) => {
   </div>
 	
 </section>`;
-}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/www_フォーマット/src/components/project1/Section1.astro", void 0);
+}, "/Users/akiyamakazuki/Dropbox/_works/アム/オンワード樫山/アンフィーロ26SS/www/src/components/project1/Section1.astro", void 0);
 export {
   $$MetaHead as $,
   $$Intro as a,

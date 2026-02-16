@@ -3,18 +3,20 @@
 //##################### KV (Key Visual) #####################
 // ヒーロー画像、メインコピー、タグライン
 
-.kv {
-  position: relative;
+#{$project-id} {
+  .kv {
+    position: relative;
 
-  .kv_img {
-    // KV画像
-  }
+    .kv_img {
+      // KV画像
+    }
 
-  .kv_copy {
-    // メインコピー
-  }
+    .kv_copy {
+      // メインコピー
+    }
 
-  .kv_tagline {
-    // タグライン
+    .kv_tagline {
+      // タグライン
+    }
   }
 }

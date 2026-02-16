@@ -4,11 +4,11 @@
  * 指定されたtheme_idから商品情報を取得する
  * @param {Object} data - 商品データオブジェクト
  * @param {number} themeId - テーマID
- * @returns {Array} - 商品配列
+ * @returns {Object} - 商品名でグループ化されたオブジェクト
  */
 export function getThemeItems(data, themeId) {
   const theme = data.themes.find((theme) => theme.theme_id === themeId);
-  return theme ? theme.items : [];
+  return theme ? theme.items : {};
 }
 
 /**
@@ -23,33 +23,21 @@ export function getProductsByName(data, themeId, productNames = null) {
 
   // 商品名が指定されていない場合は、すべての商品を返す
   if (!productNames) {
-    return groupItemsByName(themeItems);
+    return themeItems;
   }
 
   // 商品名が文字列の場合は配列に変換
   const names = Array.isArray(productNames) ? productNames : [productNames];
 
-  // 指定された商品名でフィルタリング（完全一致）
-  const filteredItems = themeItems.filter((item) =>
-    names.some((name) => item.name === name),
-  );
-
-  return groupItemsByName(filteredItems);
-}
-
-/**
- * 商品を名前でグループ化する
- * @param {Array} items - 商品配列
- * @returns {Object} - 商品名でグループ化されたオブジェクト
- */
-function groupItemsByName(items) {
-  return items.reduce((acc, item) => {
-    if (!acc[item.name]) {
-      acc[item.name] = [];
+  // 指定された商品名でフィルタリング
+  const filteredItems = {};
+  names.forEach((name) => {
+    if (themeItems[name]) {
+      filteredItems[name] = themeItems[name];
     }
-    acc[item.name].push(item);
-    return acc;
-  }, {});
+  });
+
+  return filteredItems;
 }
 
 /**
