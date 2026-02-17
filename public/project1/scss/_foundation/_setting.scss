@@ -21,37 +21,39 @@ $orange: #f68460;
 $bgPink: #fff6f9;
 $accentC: #f37c9d;
 
+$inner: 6.6666666667%;
+
 // ==========================================
 // Functions
 // ==========================================
 
 //pxをvwに変換（スマホ用）
-@function p2v($px) {
-  @return ($px / 375 * 100vw);
+@function vw($px) {
+	@return ($px / 375 * 100vw);
 }
 
 //pxをemに変換
 @function em($size, $parent: 16) {
-  @return ($size / $parent * 1em);
+	@return ($size / $parent * 1em);
 }
 
 //pxをremに変換
 @function rem($size) {
-  @return ($size / 16 * 1rem);
+	@return ($size / 16 * 1rem);
 }
 
 //パーセント計算
-@function per($c, $p: 750) {
-  @return ($c / $p * 100%);
+@function per($c, $p: 375) {
+	@return ($c / $p * 100%);
 }
 
 //最小値セット
 @function minset($r, $s: $r) {
-  @return min(#{p2v($r)}, #{($s * 1px)});
+	@return min(#{vw($r)}, #{($s * 1px)});
 }
 @function maxset($r, $s: $r) {
-  @return max(#{p2v($r)}, #{($s * 1px)});
+	@return max(#{vw($r)}, #{($s * 1px)});
 }
 @function clp($n, $x: $n) {
-  @return clamp(($n * 1px), ($n/375 * 100vw), ($x * 1px));
+	@return clamp(($n * 1px), ($n/375 * 100vw), ($x * 1px));
 }

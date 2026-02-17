@@ -1,3 +1,4 @@
+@use "setting" as *;
 * {
 	box-sizing: border-box;
 	&::before,
@@ -61,15 +62,6 @@ select {
 	background: none;
 }
 
-html {
-	font-size: p2v(16);
-	@media screen and (min-width: 768px) {
-		font-size: min(calc(16 / 1200 * 100vw), 16px);
-	}
-	@media screen and (min-width: 1200px) {
-		font-size: 16px;
-	}
-}
 body {
 	color: #333;
 	font-family: "yakuhanjp", "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -78,10 +70,29 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	letter-spacing: 0.04em;
 }
+.wrapper {
+	max-width: 1278px;
+	margin: 0 auto;
+	overflow: clip;
+}
+main {
+	position: relative;
+	margin: auto;
+	@media screen and (min-width: $breakpoint) {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		width: 50.2564102564%;
+		max-width: 640px;
+		margin-right: 0;
+		border-left: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+	}
+}
 .only-pc {
 	display: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakpoint) {
 	.only-sp {
 		display: none;
 	}
@@ -92,4 +103,18 @@ body {
 
 .dib {
 	display: inline-block;
+}
+
+// ScrollTrigger Fade Up Animation
+.is-fadeup {
+	opacity: 0;
+	transform: translateY(20px);
+	transition:
+		opacity 0.6s ease-out,
+		transform 0.6s ease-out;
+
+	&.is-show {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

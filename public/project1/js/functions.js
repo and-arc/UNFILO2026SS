@@ -92,9 +92,11 @@ $(window).on("scroll", function () {
 	})
 
 	//アンカー
-	const anchorPos = $(".pageAnchor").offset().top - winH / 2
-	if (anchorPos < scrVal) {
-		$(".pageAnchor__list li").addClass("is-show")
+	if ($(".pageAnchor").length) {
+		const anchorPos = $(".pageAnchor").offset().top - winH / 2
+		if (anchorPos < scrVal) {
+			$(".pageAnchor__list li").addClass("is-show")
+		}
 	}
 
 	// 画像サイドからイン
@@ -125,3 +127,171 @@ $(window).on("scroll", function () {
 		$(".fixAnchorNav").removeClass("scroll")
 	}
 })
+
+/* ジョグパンツ画像スライダー */
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.getElementById('jogPants_slider');
+  if (slider) {
+    const wrapper = slider.querySelector('.slider-wrapper');
+    const sliders = slider.querySelectorAll('.slider');
+    let currentIndex = Array.from(sliders).findIndex(s => s.classList.contains('slider-current'));
+
+    // スライダーの高さを設定
+    function setWrapperHeight() {
+      const currentSlider = sliders[currentIndex];
+      const height = currentSlider.offsetHeight;
+      if (height > 0) {
+        wrapper.style.height = `${height}px`;
+      }
+    }
+
+    // 画像が読み込まれた後に高さを設定
+    const images = slider.querySelectorAll('img');
+    let loadedCount = 0;
+    images.forEach(img => {
+      if (img.complete) {
+        loadedCount++;
+      } else {
+        img.addEventListener('load', () => {
+          loadedCount++;
+          if (loadedCount === images.length) {
+            setWrapperHeight();
+          }
+        });
+      }
+    });
+    if (loadedCount === images.length) {
+      setWrapperHeight();
+    }
+
+    // リサイズ時に高さを再計算
+    window.addEventListener('resize', setWrapperHeight);
+
+    // 初期状態で前の要素にslider-prevを付与
+    function updatePrevSlider() {
+      const prevIndex = currentIndex === 0 ? sliders.length - 1 : currentIndex - 1;
+      sliders.forEach(s => s.classList.remove('slider-prev'));
+      sliders[prevIndex].classList.add('slider-prev');
+    }
+    updatePrevSlider();
+
+    function nextSlide() {
+      // 前の要素（左側の小さい要素）を取得
+      const prevIndex = currentIndex === 0 ? sliders.length - 1 : currentIndex - 1;
+      const prevSlider = sliders[prevIndex];
+
+      // 前の要素をさらに左に移動
+      prevSlider.classList.add('slider-left-exit');
+      prevSlider.classList.remove('slider-prev');
+
+      // 現在のslider-currentを削除
+      sliders[currentIndex].classList.remove('slider-current');
+
+      // 次のインデックスへ
+      currentIndex = (currentIndex + 1) % sliders.length;
+
+      // 新しいslider-currentを追加
+      sliders[currentIndex].classList.add('slider-current');
+
+      // 新しい前の要素を設定
+      updatePrevSlider();
+
+      // 0.6秒後に左に移動した要素を右側に戻す
+      setTimeout(() => {
+        prevSlider.classList.remove('slider-left-exit');
+      }, 600);
+    }
+
+    // スワイプ/ドラッグ機能
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let autoPlayInterval;
+
+    function startDrag(e) {
+      isDragging = true;
+      startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+      currentX = startX;
+      e.preventDefault();
+    }
+
+    function moveDrag(e) {
+      if (!isDragging) return;
+      currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    }
+
+    function endDrag(e) {
+      if (!isDragging) return;
+      isDragging = false;
+
+      const diff = startX - currentX;
+      const threshold = 50; // スワイプと判定する最小距離
+
+      // 左にスワイプ（次のスライドへ）
+      if (diff > threshold) {
+        // オートプレイをリセット
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(nextSlide, 4000);
+        nextSlide();
+      }
+    }
+
+    // イベントリスナー設定
+    wrapper.addEventListener('mousedown', startDrag);
+    wrapper.addEventListener('touchstart', startDrag, { passive: false });
+
+    wrapper.addEventListener('mousemove', moveDrag);
+    wrapper.addEventListener('touchmove', moveDrag, { passive: false });
+
+    wrapper.addEventListener('mouseup', endDrag);
+    wrapper.addEventListener('touchend', endDrag);
+
+    wrapper.addEventListener('mouseleave', () => {
+      isDragging = false;
+    });
+
+    // ドラッグ選択を無効化
+    wrapper.style.userSelect = 'none';
+    wrapper.style.webkitUserSelect = 'none';
+
+    // 3秒ごとに次のスライドへ（オートプレイ）
+    autoPlayInterval = setInterval(nextSlide, 4000);
+  }
+});
+
+/* FV Title Swiper */
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelector('.fv_titleSwiper')) {
+    new Swiper('.fv_titleSwiper', {
+      loop: true,
+      slidesPerView: "auto",
+      speed: 10000,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      allowTouchMove: false, // ユーザーのタッチ操作を無効化
+      cssMode: false,
+    });
+  }
+});
+
+/* GSAP ScrollTrigger - Fade Up Animation */
+document.addEventListener('DOMContentLoaded', () => {
+  // ScrollTriggerプラグインを登録
+  gsap.registerPlugin(ScrollTrigger);
+
+  // .is-fadeup要素を全て取得
+  const fadeUpElements = document.querySelectorAll('.is-fadeup');
+
+  fadeUpElements.forEach((element) => {
+    ScrollTrigger.create({
+      trigger: element,
+      start: 'top 80%', // 要素の上部が画面の80%の位置に来たときにトリガー
+      once: true, // 一度だけ実行
+      onEnter: () => {
+        element.classList.add('is-show');
+      },
+    });
+  });
+});

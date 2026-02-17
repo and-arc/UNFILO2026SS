@@ -1,45 +1,30 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import { PROJECTS } from "./project-config.js";
 
-/**
- * プロジェクト設定マップ
- * 各プロジェクトの固有設定を定義
- */
-const projectConfigs = {
-  1: {
-    name: "UNFILO",
-    port: 5501,
-    redirectPath: "/project1-index",
-  },
-  2: {
-    name: "Spec Page",
-    port: 5502,
-    redirectPath: "/project2-index",
-  },
-};
 
 /**
  * 共通のAstro設定を生成する関数
  * @param {Object} projectConfig - プロジェクト固有の設定
- * @param {string} projectConfig.name - プロジェクト名
+ * @param {string} projectConfig.dirName - ディレクトリ名
  * @param {number} projectConfig.port - ポート番号
  * @param {string} projectConfig.redirectPath - リダイレクトパス
  * @param {string} [projectId] - プロジェクトID（環境変数から取得）
  * @returns {import('astro').AstroUserConfig} Astro設定オブジェクト
  */
 function createProjectConfig(
-  { name, port, redirectPath },
+  { dirName, port, redirectPath },
   projectId = undefined
 ) {
   // プロジェクトIDを取得（引数優先、なければ環境変数）
   const project = projectId || process.env.PROJECT || "1";
 
-  console.log(`🚀 Loading Project ${project} (${name}) configuration...`);
+  console.log(`🚀 Loading Project ${project} (${dirName}) configuration...`);
 
   return {
     srcDir: "./src",
-    publicDir: `./public/project${project}`,
-    outDir: `./dist-project${project}`,
+    publicDir: `./public/${dirName}`,
+    outDir: `./dist-${dirName}`,
 
     // 静的サイト生成の設定
     output: "static",
@@ -97,6 +82,14 @@ function createProjectConfig(
       css: {
         devSourcemap: true,
       },
+      // 開発サーバーの監視設定
+      server: {
+        watch: {
+          // publicディレクトリのCSSファイルも監視対象に含める
+          usePolling: false,
+          ignored: ["**/node_modules/**", "**/.git/**"],
+        },
+      },
     },
 
     // 画像最適化の設定
@@ -107,13 +100,14 @@ function createProjectConfig(
 }
 
 // 環境変数でプロジェクトを指定 (デフォルトは1)
-const project = process.env.PROJECT || "1";
-const config = projectConfigs[project];
+const projectNum = process.env.PROJECT || "1";
+const projectKey = `project${projectNum}`;
+const config = PROJECTS[projectKey];
 
 if (!config) {
   throw new Error(
-    `Unknown project: ${project}. Available projects: ${Object.keys(
-      projectConfigs
+    `Unknown project: ${projectNum}. Available projects: ${Object.keys(
+      PROJECTS
     ).join(", ")}`
   );
 }

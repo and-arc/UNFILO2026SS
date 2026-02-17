@@ -6,18 +6,14 @@
 export const PROJECTS = {
   // プロジェクト1: UNFILO
   project1: {
-    name: "project1", // ディレクトリ名・ファイル名で使用（変更時はここを編集）
-    id: "#unfilo2026SS", // HTML id属性 & SCSS スコープ用（_setting.scss の $project-id と同期）
+    dirName: "project1", // ディレクトリ名（public/、dist- で使用）
     port: 5501, // 開発サーバーのポート
+    redirectPath: "/project1-index", // 開発時のリダイレクトパス
   },
-  // プロジェクト2: Project2
+  // プロジェクト2: Spec Page
   project2: {
-    name: "project2", // ディレクトリ名・ファイル名で使用（変更時はここを編集）
-    id: "#project2_id", // 必要に応じて変更
+    dirName: "project2",
     port: 5502,
+    redirectPath: "/project2-index",
   },
 };
-
-// 後方互換性のための個別エクスポート
-export const PROJECT1_ID = PROJECTS.project1.id;
-export const PROJECT2_ID = PROJECTS.project2.id;

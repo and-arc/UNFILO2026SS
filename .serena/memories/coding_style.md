@@ -55,3 +55,13 @@ $Montserrat: "Montserrat", sans-serif;
 - `img/`: 画像アセット（用途別命名）
 - `css/`: コンパイル済みファイル
 - `js/`: JavaScript実装ファイル
+
+## CSS/SCSS コーディング規約（追記）
+
+### 継承の活用
+- `base.scss` や `reset.css` で定義済みのスタイル（`font-family`, `color`, `font-weight`, `letter-spacing`, `margin` 等）は、個別のコンポーネントで再定義しない。
+
+### 画像のスタイル
+- 汎用的な `display: block; width: 100%; height: 100%; object-fit: contain;` 指定は避ける。
+- サイズ指定がある場合は `width` と `aspect-ratio` を使用し、`height` 指定は原則避ける。
+- `hover` 効果は `@media (hover: hover)` で囲み、タッチデバイス等での意図しない適用を防ぐ。

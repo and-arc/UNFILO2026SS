@@ -1,8 +1,8 @@
 // ==========================================
 // Project1 (UNFILO) スタイルシート
 // ==========================================
-// プロジェクトID変更時は project-config.js の PROJECTS.project1.id を変更
-// ※PostCSSが自動的に全セレクタに #unfilo2026SS プレフィックスを付与
+// プロジェクトID: #unfilo2026SS (HTMLのbody要素に付与)
+// ※全スタイルは #unfilo2026SS 配下でスコープ化されています
 
 // Foundation
 @use "_foundation/setting";
@@ -10,9 +10,7 @@
 @use "_foundation/base";
 
 // Partials
-@use "_partial/parts"; // 共通UIパーツ（ボタン、タグ、固定ナビ等）
-@use "_partial/kv"; // KV（キービジュアル）
-@use "_partial/intro"; // イントロ（トピックス・動画）
+@use "_partial/firstview"; // FirstView（FV + イントロ）
 @use "_partial/item"; // 商品アイテム個別
 @use "_partial/sections"; // 商品セクション
 @use "_partial/footer"; // フッター（クレジット・CTA含む）

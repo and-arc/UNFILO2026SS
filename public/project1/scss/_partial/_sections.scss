@@ -4,130 +4,180 @@
 // 商品セクション（画像、タグ、カラーバリエーション、機能美ポイント等）
 
 #{$project-id} {
-  // section共通
-  .section {
-    .section_inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 32px;
-      width: 100%;
-    }
-    // タイトルエリア
-    .section_title {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      text-align: center;
-    }
-    .section_lead {
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      line-height: 1.8;
-      width: 325px;
-    }
-    // カラーバリエーション
-    .section_colorVariation {
-      display: flex;
-      gap: 6px;
-      align-items: flex-start;
-      justify-content: flex-end;
-      width: 325px;
-      .label {
-        font-family: "Jost", sans-serif;
-        font-size: 12px;
-        letter-spacing: 0.05em;
-        line-height: 1.5;
-        text-align: center;
-      }
-      .swatches {
-        display: flex;
-        gap: 2px;
-        align-items: center;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        .swatch {
-          width: 28px;
-          height: 16px;
-          flex-shrink: 0;
-        }
-      }
-    }
-  }
-  #jogPants {
-    // 画像エリア
-    .section_images {
-      display: flex;
-      gap: 2px;
-      align-items: flex-end;
-      justify-content: flex-end;
-      width: 375px;
-      .image-left {
-        width: 53px;
-        height: 214px;
-        background-color: #ccc;
-        flex-shrink: 0;
-      }
-      .image-right {
-        width: 320px;
-        height: 453px;
-        background-color: #ccc;
-        flex-shrink: 0;
-      }
-    }
-    // Pointセクション
-    .section_pointList {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-start;
-      width: 324px;
-      .point {
-        display: flex;
-        gap: 16px;
-        align-items: flex-start;
-        width: 100%;
-        .point_image {
-          width: 136px;
-          height: 136px;
-          background-color: #ccc;
-          flex-shrink: 0;
-          border: 10px solid #fff;
-          box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.08);
-        }
-        .point_content {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          flex: 1;
-          min-width: 0;
-          .point_label {
-            font-family: "Arizonia", serif;
-            font-weight: 700;
-            font-size: 16px;
-            color: $accentC;
-            letter-spacing: 0.05em;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-          }
-          .point_text {
-            font-size: 12px;
-            letter-spacing: 0.05em;
-            line-height: 1.8;
-            white-space: pre-wrap;
-          }
-        }
-      }
-    }
-    // 商品リスト
-    .section_items {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 275px;
-    }
-  }
+	//iframe PC時の配置
+	.video__sticky iframe {
+		width: 100%;
+		height: 100%;
+		aspect-ratio: 9/16;
+	}
+	@media (min-width: 768px) {
+		.video__sticky {
+			position: absolute;
+			left: -100%;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.video__sticky__inner {
+			position: sticky;
+			left: 0;
+			top: 0;
+			height: 100cqh;
+			padding: 5.3333333333cqw 10%;
+		}
+	}
+
+	// section共通
+	.section {
+		.section_inner {
+		}
+		// タイトルエリア
+		.title {
+			max-width: 550px;
+			margin: 0 auto minset(10);
+			text-align: center;
+		}
+		.lead {
+			font-size: minset(12, 13);
+			line-height: 1.8;
+			text-align: center;
+		}
+		.itemImg {
+			position: relative;
+			margin-top: minset(48);
+		}
+		// カラーバリエーション
+		.colorVariation {
+			display: flex;
+			gap: 6px;
+			align-items: flex-start;
+			justify-content: flex-end;
+			width: per(325);
+			margin: minset(24) auto;
+			.label {
+				font-family: "Jost", sans-serif;
+				font-size: minset(12, 13);
+				line-height: 1.5;
+			}
+			.swatches {
+				display: flex;
+				gap: 2px;
+				align-items: center;
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				.swatch {
+					width: minset(28);
+					aspect-ratio: 28 / 16;
+				}
+			}
+		}
+	}
+	#topics {
+		margin-bottom: minset(48);
+		.topics_title {
+			margin-bottom: minset(32, 40);
+		}
+	}
+	#beutymove {
+		.itemSubImg {
+			width: per(220);
+			margin: minset(24) 0 0 $inner;
+			box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.08);
+		}
+	}
+	#jogPants {
+		margin-top: minset(48);
+		// 画像エリア
+		#jogPants_slider {
+			width: 100%;
+			margin-top: minset(32);
+			.slider-wrapper {
+				position: relative;
+				container-type: inline-size;
+				width: 100%;
+				margin: 0 auto;
+				overflow: hidden;
+				background-color: #fff;
+			}
+			.slider {
+				position: absolute;
+				z-index: -1;
+				width: 80cqw;
+				aspect-ratio: 80 / 110;
+				bottom: 0;
+				right: 0;
+				transform: translateX(100%);
+				transition: 0.8s ease;
+				will-change: transform;
+			}
+			.slider-current {
+				z-index: 1;
+				right: 0;
+				transform: translateX(0);
+			}
+			/* slider-currentの前の要素（左側） */
+			.slider-prev {
+				z-index: 1;
+				width: 40cqw;
+				right: 0;
+				transform: translateX(calc(-80cqw - 2px));
+			}
+			/* 左側から退場する要素 */
+			.slider-left-exit {
+				width: 40cqw;
+				right: 0;
+				transform: translateX(calc(-120cqw - 2px));
+			}
+		}
+		// Pointセクション
+		.pointList {
+			display: flex;
+			flex-direction: column;
+			gap: minset(16);
+			align-items: flex-start;
+			max-width: 550px;
+			width: per(325);
+			margin: minset(24) auto;
+			.point {
+				display: flex;
+				gap: minset(16);
+				align-items: flex-start;
+				width: 100%;
+				.point_image {
+					width: minset(136, 170);
+					aspect-ratio: 1 / 1;
+					background-color: #ccc;
+					flex-shrink: 0;
+					box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.08);
+				}
+				.point_content {
+					display: flex;
+					flex-direction: column;
+					gap: 8px;
+					flex: 1;
+					min-width: 0;
+					.point_label {
+						font-family: "Arizonia", serif;
+						font-size: 16px;
+						color: $accentC;
+						line-height: 1;
+					}
+					.point_text {
+						font-size: 12px;
+						letter-spacing: 0.05em;
+						line-height: 1.8;
+						white-space: pre-wrap;
+					}
+				}
+			}
+		}
+	} //jogPants
+	#setup {
+		.itemSubImg {
+			width: per(220);
+			margin: minset(24) $inner 0 auto;
+			box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.08);
+		}
+	}
 }

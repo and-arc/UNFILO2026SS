@@ -29,7 +29,7 @@ const astroProcess = spawn(
     env: {
       ...process.env,
       PROJECT: projectNum,
-      PROJECT_NAME: project.name,
+      PROJECT_NAME: project.displayName,
     },
   },
 );

@@ -1,0 +1,164 @@
+---
+// セクションコンポーネント
+import Item from './parts/Item.astro';
+---
+
+<!-- Topics -->
+ <article class="section" id="topics">
+	<h2 class="topics_title is-fadeup">
+		<img src="./img/topics_title01.png" alt="topics 様子見シーズンは
+機能美名品で春デビュー! 俳優・山本美月">
+	</h2>
+	<div class="video__sticky">
+		<div class="video__sticky__inner">
+			<iframe src="https://player.vimeo.com/video/1114138379?h=d7aac25328&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;loop=1&amp;muted=1&amp;controls=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" id="movie1" data-ready="true"></iframe>
+			<script src="https://player.vimeo.com/api/player.js"></script>
+		</div>
+	</div>
+	<!--video__sticky-->
+
+<!-- BEAUTY MOVE シリーズ -->
+<section class="section" id="beutymove">
+	<div class="section_inner">
+		<h3 class="title is-fadeup">
+      <img src="./img/beutymove_title01.png" alt="名1品 BEAUTY MOVE シリーズ">
+    </h3>
+		<p class="lead">上品な表面感と快適な着心地が魅力の<br>「BEAUTY MOVE」がさらにパワーアップ！<br>かゆいところに手が届く､ちょうどいい服を味方につけて<br>春スタートダッシュの成功を手に入れて。</p>
+		<div class="itemImg">
+			<img src="./img/beutymove_img01.jpg" alt="">
+		</div>
+		<!-- カラーバリエーション -->
+    <div class="colorVariation">
+      <p class="label">COLOR VARIATION</p>
+      <ul class="swatches">
+        <li class="swatch" style="background-color: #2b3344;"></li>
+        <li class="swatch" style="background-color: #aeabb6;"></li>
+        <li class="swatch" style="background-color: #2b2223;"></li>
+      </ul>
+    </div>
+		<div class="item">
+      <Item themeId={1} />
+    </div>
+		<div class="itemImg">
+			<img src="./img/beutymove_img02.jpg" alt="">
+		</div>
+		<div class="itemSubImg">
+			<img src="./img/beutymove_subImg02.jpg" alt="">
+		</div>
+		<div class="colorVariation">
+      <p class="label">COLOR VARIATION</p>
+      <ul class="swatches">
+        <li class="swatch" style="background-color: #2b3344;"></li>
+        <li class="swatch" style="background-color: #aeabb6;"></li>
+        <li class="swatch" style="background-color: #2b2223;"></li>
+      </ul>
+    </div>
+		<div class="item">
+      <Item themeId={1} />
+    </div>
+	</div>
+</section>
+
+<!-- 最愛ジョグパン -->
+<section class="section" id="jogPants">
+  <div class="section_inner">
+    <!-- タイトルエリア -->
+    <h3 class="title">
+      <img src="./img/jogpants_title01.png" alt="累計10万本！「最愛ジョグパン」がさらにさらに進化中">
+    </h3>
+		<p class="lead">
+        UNFILOから生まれた大ヒット名品が<br>
+        より美しく、より快適に、さらに頼れる一本へと<br>
+        生地もディテールもブラッシュアップ！<br>
+        この春もシーンレスで活躍の予感です。
+      </p>
+    <!-- 画像エリア -->
+    <div class="slider-container" id="jogPants_slider">
+      <div class="slider-wrapper">
+        <!-- 表示される要素 -->
+        <div class="slider"><img src="./img/jogpants_slide02.png" alt=""></div>
+        <div class="slider slider-current">
+          <img src="./img/jogpants_slide01.png" alt="">
+        </div>
+        <!-- 隠れる要素群（右側） -->
+        <div class="slider"><img src="./img/jogpants_slide02.png" alt=""></div>
+        <div class="slider"><img src="./img/jogpants_slide01.png" alt=""></div>
+      </div>
+    </div>
+
+    <!-- カラーバリエーション -->
+    <div class="colorVariation">
+      <p class="label">COLOR VARIATION</p>
+      <ul class="swatches">
+        <li class="swatch" style="background-color: #2b3344;"></li>
+        <li class="swatch" style="background-color: #aeabb6;"></li>
+        <li class="swatch" style="background-color: #2b2223;"></li>
+      </ul>
+    </div>
+
+    <!-- Pointセクション -->
+    <div class="pointList">
+      <div class="point">
+        <div class="point_image"><img src="./img/point_img01.jpg" alt=""></div>
+        <div class="point_content">
+          <p class="point_label">Point</p>
+          <p class="point_text">センタープレスに樹脂加工を施すことで、より落ちにくく。縦ラインをしっかり強調してくれます。</p>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point_image"><img src="./img/point_img02.jpg" alt=""></div>
+        <div class="point_content">
+          <p class="point_label">Point</p>
+          <p class="point_text">肌に触れる側の糸を見直すこで、吸水速乾性がグッとUP。お手入れしやすくなり、汗ばむ季節でも快適です。</p>
+        </div>
+      </div>
+    </div>
+    <!-- 商品リスト -->
+    <div class="item">
+      <Item themeId={1} />
+    </div>
+
+		<div id="jumper">
+			<div class="itemImg">
+				<img src="./img/jumper_img01.jpg" alt="">
+			</div>
+			<div class="colorVariation">
+				<p class="label">COLOR VARIATION</p>
+				<ul class="swatches">
+					<li class="swatch" style="background-color: #2b3344;"></li>
+					<li class="swatch" style="background-color: #aeabb6;"></li>
+					<li class="swatch" style="background-color: #2b2223;"></li>
+				</ul>
+			</div>
+			<div class="item">
+				<Item themeId={1} />
+			</div>
+		</div>
+		<!--jumper-->
+
+		<div id="setup">
+			<div class="itemImg">
+				<img src="./img/setup_img01.jpg" alt="">
+			</div>
+			<div class="itemSubImg">
+				<img src="./img/setup_subImg01.jpg" alt="">
+			</div>
+			<div class="colorVariation">
+				<p class="label">COLOR VARIATION</p>
+				<ul class="swatches">
+					<li class="swatch" style="background-color: #2b3344;"></li>
+					<li class="swatch" style="background-color: #aeabb6;"></li>
+					<li class="swatch" style="background-color: #2b2223;"></li>
+				</ul>
+			</div>
+			<div class="item">
+				<Item themeId={1} />
+			</div>
+		</div>
+		<!--setup-->
+  </div>
+</section>
+<!--jogPants-->
+
+
+</article>

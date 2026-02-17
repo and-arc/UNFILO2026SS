@@ -17,13 +17,11 @@
 
 // Parts（機能的コンポーネント）
 import MetaHead from '../components/project1/parts/MetaHead.astro';
-import NavFixed from '../components/project1/parts/NavFixed.astro';
-import FooterScripts from '../components/project1/parts/FooterScripts.astro';
+import Footer from '../components/project1/Footer.astro';
 
 // Sections（セクションコンポーネント）
-import Intro from '../components/project1/Intro.astro';
-import Category from '../components/project1/Category.astro';
-import Section1 from '../components/project1/Section1.astro';
+import FirstView from '../components/project1/FirstView.astro';
+import Section from '../components/project1/Section.astro';
 ---
 
 <!DOCTYPE html>
@@ -32,7 +30,7 @@ import Section1 from '../components/project1/Section1.astro';
   <MetaHead />
 </head>
 
-<body>
+<body id="unfilo2026SS">
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPVQ6H4" height="0" width="0" style="display:none;visibility:hidden"></iframe>
@@ -40,15 +38,12 @@ import Section1 from '../components/project1/Section1.astro';
   <!-- End Google Tag Manager (noscript) -->
 
   <div class="wrapper">
-    <Intro />
-    <Category />
-    <Section1 />
+    <FirstView />
+    <Section />
 
     <!-- TODO: 他のitemSectionを追加していく -->
-
-    <NavFixed />
   </div>
 
-  <FooterScripts />
+  <Footer />
 </body>
 </html>

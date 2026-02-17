@@ -1,0 +1,76 @@
+@use "../_foundation/setting" as *;
+
+//##################### FirstView (FV + Intro) #####################
+// ファーストビュー: メイン画像と横スクロールタイトル + イントロセクション
+
+#{$project-id} {
+	// FV Section
+	.fv {
+		position: relative;
+		overflow: hidden;
+		.fv_image {
+			img {
+				animation: blur 1.5s forwards;
+				will-change: filter, transform;
+			}
+		}
+		// ブラーエントランスアニメーション
+		@keyframes blur {
+			0% {
+				opacity: 0;
+				filter: blur(20px);
+				transform: scale(1.1);
+			}
+			40% {
+				filter: blur(0);
+			}
+			100% {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+		// 横スクロールタイトルラッパー
+		.fv_titleWrapper {
+			position: absolute;
+			bottom: minset(90, 120);
+			left: 0;
+			width: 100%;
+			overflow: hidden;
+			opacity: 0;
+			animation: titleFadeIn 1.5s ease-out 1.5s forwards;
+		}
+		// タイトルフェードインアニメーション
+		@keyframes titleFadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		// Swiper設定
+		.fv_titleSwiper {
+			.swiper-wrapper {
+				transition-timing-function: linear !important;
+			}
+			.swiper-slide {
+				width: auto !important;
+				margin-right: minset(10);
+			}
+		}
+		// タイトル画像
+		.fv_titleImage {
+			display: block;
+			width: auto;
+			height: minset(27, 46);
+		}
+	}
+
+	// Intro
+	#intro {
+		margin: minset(30) auto;
+		.title {
+			margin-bottom: minset(32);
+		}
+	}
+}
